@@ -5,8 +5,13 @@ app.controller('MainController', function($scope, breweryDBService) {
         breweryDBService.getRandomBeerDB().then(function(response) {
             $scope.test = response.data.data;
         });
-
     };
+
+    $scope.testServ = function() {
+        breweryDBService.testService();
+    };
+
+
 
 
 });
