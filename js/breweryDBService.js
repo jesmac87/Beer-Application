@@ -2,17 +2,42 @@ var app = angular.module('Beer-App');
 
 app.service('breweryDBService', function($http, $window) {
 
+    var breweryURL = 'http://api.brewerydb.com/v2/',
+        key = '?key=' + $window.env.apiKey;
+
 
     this.getRandomBeerDB = function() {
-
         return $http({
             method: 'GET',
-            url: 'https://api.brewerydb.com/v2/beer/random?key=' + $window.env.apiKey + '&format=json&hasLabels=Y',
+            url: breweryURL + 'beer/random' + key + '&format=json&hasLabels=Y&status=verified',
         });
     };
 
-    this.testService = function() {
-        console.log("hello");
+    this.getLocationsDB = function(city, state, zip) {
+
+        if (city === undefined) {
+            city = '';
+        } else {
+            city = '&locality=' + city;
+        }
+
+        if (state === undefined) {
+            state = '';
+        } else {
+            state = '&region=' + state;
+        }
+
+        if (zip === undefined) {
+            zip = '';
+        } else {
+            zip = '&postalCode=' + zip;
+        }
+
+        return $http({
+            method: 'GET',
+            url: breweryURL + 'locations' + key + city + state + zip,
+        });
     };
+
 
 });

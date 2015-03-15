@@ -2,14 +2,23 @@ var app = angular.module('Beer-App');
 
 app.controller('MainController', function($scope, breweryDBService) {
     $scope.getRandomBeer = function() {
-        breweryDBService.getRandomBeerDB().then(function(response) {
-            $scope.test = response.data.data;
+        breweryDBService.getRandomBeerDB().then(function(beer) {
+            $scope.randomBeer = beer.data.data;
+            console.log($scope.randomBeer);
         });
     };
 
-    $scope.testServ = function() {
-        breweryDBService.testService();
+    $scope.getLocations = function(city, state, zip) {
+
+        breweryDBService.getLocationsDB(city, state, zip).then(function(locations) {
+            $scope.locations = locations.data.data;
+        }, function(error) {
+            alert(error);
+        });
+
+        console.log($scope.locations);
     };
+
 
 
 

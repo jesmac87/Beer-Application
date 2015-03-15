@@ -1,0 +1,20 @@
+<!-- views/location.html -->
+<h1>Locations</h1>
+
+<form class='form-inline' ng-submit='getLocations(city, state, zip)'>
+    <div class="form-group">
+        <label for="City">City</label>
+        <input type="text" class="form-control" id="City" placeholder="City" ng-model='city'>
+    </div>
+    <div class="form-group">
+        <label for="State">State</label>
+        <input type="text" class="form-control" id="State" placeholder="State" ng-model='state'>
+    </div>
+    <div class="form-group">
+        <label for="Zipcode">Zipcode</label>
+        <input type="text" class="form-control" id="Zipcode" placeholder="Zipcode" ng-model='zip'>
+    </div>
+
+
+    <button class='btn btn-warning'>Submit</button>
+</form>

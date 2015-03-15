@@ -12,16 +12,30 @@
 
 <body ng-controller="MainController">
 
-    <form>
-        <button class='btn' ng-click="getRandomBeer()">Get Random Beer</button>
-        <button class='btn' ng-click='testServ()'>test</button>
-    </form>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref='home'>
+                    <img alt="Brand" src="./images/beer.png">
+                </a>
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="randomBeer">Random Beer Generator</a>
+                    </li>
+                    <li><a ui-sref="locations">Location</a>
+                    </li>
+                </ul>
 
-    <!-- <div ui-view>
-    <a ui-sref="state1">State 1</a>
-    <a ui-sref="state2">State 2</a>
-</div>
- -->
+
+
+            </div>
+    </nav>
+
+
+
+    <div ui-view></div>
+
+
+
 
 
 
@@ -35,8 +49,13 @@
     <script src='./js/app.js'></script>
     <script src='./js/mainController.js'></script>
     <script src='./js/breweryDBService.js'></script>
+
+    <!-- d3.js -->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src='./js/d3.js'></script>
+
+    <!-- Views -->
+
 
 
 

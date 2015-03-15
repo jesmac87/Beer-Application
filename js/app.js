@@ -2,31 +2,21 @@ var app = angular.module('Beer-App', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     //
-    // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("state1");
+    // For any unmatched url, redirect to /home
+    $urlRouterProvider.otherwise("home");
     //
     // Now set up the states
     $stateProvider
-        .state('state1', {
-            url: "/state1",
-            templateUrl: "partials/state1.html"
+        .state('randomBeer', {
+            url: "/randomBeer",
+            templateUrl: "./views/randomBeer.html"
         })
-        .state('state1.list', {
-            url: "/list",
-            templateUrl: "partials/state1.list.html",
-            controller: function($scope) {
-                $scope.items = ["A", "List", "Of", "Items"];
-            }
+        .state('home', {
+            url: "/home",
+            templateUrl: "./views/home.html",
         })
-        .state('state2', {
-            url: "/state2",
-            templateUrl: "partials/state2.html"
-        })
-        .state('state2.list', {
-            url: "/list",
-            templateUrl: "partials/state2.list.html",
-            controller: function($scope) {
-                $scope.things = ["A", "Set", "Of", "Things"];
-            }
+        .state('locations', {
+            url: '/locations',
+            templateUrl: './views/locations.html'
         });
 });
