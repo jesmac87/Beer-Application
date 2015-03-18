@@ -1,12 +1,9 @@
 <!-- views/randomBeer.html -->
 <div class='row'>
     <h1 class='col-md-4 col-md-offset-4 text-center'>Random Beer Generator</h1>
-
     <form>
-        <button class='btn btn-warning col-md-2 col-md-offset-5 random-beer-form' ng-click="getRandomBeer()">Get Random Beer</button>
+        <button class='btn btn-warning col-md-2 col-md-offset-5 form-bottom-margin' ng-click="getRandomBeer()">Get Random Beer</button>
     </form>
-
-
     <div class='col-md-4 col-md-offset-4' ng-show='randomBeer'>
         <div class="panel panel-warning">
             <div class="panel-heading">{{randomBeer.name}}</div>
@@ -25,7 +22,6 @@
                     <li class='list-group-item' ng-show='randomBeer.srm.hex' style='background: #{{randomBeer.srm.hex}}'>
                         Standard Reference Method(SRM) - Color
                     </li>
-
                 </ul>
             </div>
         </div>

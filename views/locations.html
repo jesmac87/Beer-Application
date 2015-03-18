@@ -1,20 +1,37 @@
 <!-- views/location.html -->
 <h1>Locations</h1>
-
-<form class='form-inline' ng-submit='getLocations(city, state, zip)'>
+<form name='locationForm' class='form-inline form-bottom-margin' ng-submit='getLocations(city, state, zip)'>
     <div class="form-group">
-        <label for="City">City</label>
-        <input type="text" class="form-control" id="City" placeholder="City" ng-model='city'>
+        <label for="label-city">City</label>
+        <input type="text" class="form-control" id="label-city" placeholder="City" ng-model='city'>
     </div>
     <div class="form-group">
         <label for="State">State</label>
-        <input type="text" class="form-control" id="State" placeholder="State" ng-model='state'>
+        <input type="text" class="form-control" id="State" placeholder="Full State Name" ng-model='state'>
     </div>
     <div class="form-group">
         <label for="Zipcode">Zipcode</label>
         <input type="text" class="form-control" id="Zipcode" placeholder="Zipcode" ng-model='zip'>
     </div>
-
-
     <button class='btn btn-warning'>Submit</button>
 </form>
+<div class='row'>
+    <div class='col-md-4' ng-repeat="location in locations | orderBy: 'brewery.name'">
+        <div class="panel panel-warning">
+            <div class="panel-heading" ng-click="showBody ? showBody = false : showBody = true">
+                <h3 class="panel-title">{{location.brewery.name}}</h3>
+            </div>
+            <div class="panel-body" ng-show="showBody">
+                <ul class='list-group'>
+                    <li class='list-group-item' ng-show="location.brewery.images.medium"><img src="{{location.brewery.images.medium}}" alt="Brewery logo"></li>
+                    <li class='list-group-item' ng-show="location.brewery.established">Established: {{location.brewery.established}}</li>
+                    <li class='list-group-item' ng-show="location.brewery.description">{{location.brewery.description}}</li>
+                    <li class='list-group-item' ng-show="location.locationType">Batch Size: {{location.locationType}}</li>
+                    <li class='list-group-item' ng-show="location.phone">{{location.phone}}</li>
+                    <li class='list-group-item' ng-show="location.website"><a href="{{location.website}}">{{location.website}}</a></li>
+                    <li class='list-group-item' ng-show="location.streetAddress">{{location.streetAddress}} {{location.locality}} {{location.region}} {{location.postalCode}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

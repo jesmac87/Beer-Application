@@ -17,6 +17,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('locations', {
             url: '/locations',
-            templateUrl: './views/locations.html'
+            templateUrl: './views/locations.html',
+            controller: 'MainController'
+
         });
 });

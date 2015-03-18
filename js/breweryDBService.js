@@ -14,8 +14,9 @@ app.service('breweryDBService', function($http, $window) {
     };
 
     this.getLocationsDB = function(city, state, zip) {
-
         if (city === undefined) {
+            city = '';
+        } else if (city === '') {
             city = '';
         } else {
             city = '&locality=' + city;
@@ -23,11 +24,15 @@ app.service('breweryDBService', function($http, $window) {
 
         if (state === undefined) {
             state = '';
+        } else if (state === '') {
+            state = '';
         } else {
             state = '&region=' + state;
         }
 
         if (zip === undefined) {
+            zip = '';
+        } else if (zip === '') {
             zip = '';
         } else {
             zip = '&postalCode=' + zip;

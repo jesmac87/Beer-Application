@@ -4,9 +4,8 @@ html, body {
     margin: 0px;
     padding: 0px;
 }
-.random-beer {
-    background: url("http://m.ten-ninety.com/images/about_us_image.jpg") no-repeat;
-}
-.random-beer-form {
+
+.form-bottom-margin
+ {
     margin-bottom: 10px;
 }

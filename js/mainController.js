@@ -11,16 +11,17 @@ app.controller('MainController', function($scope, breweryDBService) {
     $scope.getLocations = function(city, state, zip) {
 
         breweryDBService.getLocationsDB(city, state, zip).then(function(locations) {
+            $scope.reset();
             $scope.locations = locations.data.data;
-        }, function(error) {
-            alert(error);
+            console.log($scope.locations);
+        }, function() {
+            alert('Please try again');
         });
-
-        console.log($scope.locations);
     };
 
-
-
-
-
+    $scope.reset = function() {
+        $scope.city = '';
+        $scope.state = '';
+        $scope.zip = '';
+    };
 });
