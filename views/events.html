@@ -1,0 +1,17 @@
+<h1>Events</h1>
+
+<form name='locationForm' class='form-inline form-bottom-margin' ng-submit='getLocations(city, state, zip)'>
+    <div class="form-group">
+        <label for="label-city">City</label>
+        <input type="text" class="form-control" id="label-city" placeholder="City" ng-model='city'>
+    </div>
+    <div class="form-group">
+        <label for="State">State</label>
+        <input type="text" class="form-control" id="State" placeholder="Full State Name" ng-model='state'>
+    </div>
+    <div class="form-group">
+        <label for="Zipcode">Zipcode</label>
+        <input type="text" class="form-control" id="Zipcode" placeholder="Zipcode" ng-model='zip'>
+    </div>
+    <button class='btn btn-warning'>Submit</button>
+</form>

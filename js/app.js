@@ -14,11 +14,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: "/home",
             templateUrl: "./views/home.html",
+            controller: 'MainController'
         })
         .state('locations', {
             url: '/locations',
             templateUrl: './views/locations.html',
             controller: 'MainController'
 
+        })
+        .state('events', {
+            url: '/events',
+            templateUrl: './views/events.html',
+            controller: 'MainController'
         });
 });

@@ -24,4 +24,6 @@ app.controller('MainController', function($scope, breweryDBService) {
         $scope.state = '';
         $scope.zip = '';
     };
+
+    
 });

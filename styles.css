@@ -9,3 +9,14 @@ html, body {
  {
     margin-bottom: 10px;
 }
+
+.grid {
+	width: 2400px;
+	height: 540px;
+}
+
+.hexagon {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
