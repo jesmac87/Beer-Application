@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     margin: 0px;
@@ -7,10 +8,14 @@ html, body {
     background-size: cover;
 }
 
-.form-bottom-margin
- {
-    margin-bottom: 10px;
+.form-bottom-margin {
+    margin-bottom: 20px;
 }
-
 /*angular-ui boostrap setup*/
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}

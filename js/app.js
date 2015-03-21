@@ -1,4 +1,4 @@
-var app = angular.module('Beer-App', ['ui.router', 'ui.bootstrap']);
+var app = angular.module('Beer-App', ['ui.router', 'ui.bootstrap', 'firebase']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     //
@@ -21,5 +21,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: './views/locations.html',
             controller: 'MainController'
 
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: './login/login.html',
+            controller: 'LoginController',
         });
 });

@@ -36,7 +36,7 @@
     </div>
 </div> -->
 <!-- Button trigger modal -->
-<h1>Locations</h1>
+<h1>Find a Brewery</h1>
 <form name='locationForm' class='form-inline form-bottom-margin' ng-submit='getLocations(city, state, zip)'>
     <div class="form-group">
         <label for="label-city">City</label>
@@ -54,7 +54,7 @@
 </form>
 <div class='row'>
     <div class='col-md-4' ng-repeat="location in locations | orderBy: 'brewery.name'">
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" ng-click='openModal(location)'>
+        <button type="button" class="btn btn-warning form-bottom-margin" ng-click='openModal(location)'>
             {{location.brewery.name}}
         </button>
     </div>
