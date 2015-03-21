@@ -1,0 +1,10 @@
+<h1>{{location.brewery.name}}</h1>
+<ul class='list-group'>
+    <li class='list-group-item' ng-show="location.brewery.images.medium"><img src="{{location.brewery.images.medium}}" alt="Brewery logo"></li>
+    <li class='list-group-item' ng-show="location.brewery.established">Established: {{location.brewery.established}}</li>
+    <li class='list-group-item' ng-show="location.brewery.description">{{location.brewery.description}}</li>
+    <li class='list-group-item' ng-show="location.locationType">Batch Size: {{location.locationType}}</li>
+    <li class='list-group-item' ng-show="location.phone">{{location.phone}}</li>
+    <li class='list-group-item' ng-show="location.website"><a href="{{location.website}}">{{location.website}}</a></li>
+    <li class='list-group-item' ng-show="location.streetAddress">{{location.streetAddress}} {{location.locality}} {{location.region}} {{location.postalCode}}</li>
+</ul>

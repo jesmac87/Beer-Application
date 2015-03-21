@@ -3,6 +3,8 @@ html, body {
     width: 100%;
     margin: 0px;
     padding: 0px;
+    background: url('https://unsplash.imgix.net/12/barley.jpg?q=75&fm=jpg&s=f39de5ca1970a13dbe6af6c86b3c47ec');
+    background-size: cover;
 }
 
 .form-bottom-margin
@@ -10,13 +12,5 @@ html, body {
     margin-bottom: 10px;
 }
 
-.grid {
-	width: 2400px;
-	height: 540px;
-}
-
-.hexagon {
-  fill: none;
-  stroke: #000;
-  stroke-width: 2px;
-}
+/*angular-ui boostrap setup*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

@@ -1,5 +1,5 @@
 <!-- views/randomBeer.html -->
-<div class='row'>
+<!-- <div class='row'>
     <h1 class='col-md-4 col-md-offset-4 text-center'>Random Beer Generator</h1>
     <form>
         <button class='btn btn-warning col-md-2 col-md-offset-5 form-bottom-margin' ng-click="getRandomBeer()">Get Random Beer</button>
@@ -23,6 +23,42 @@
                         Standard Reference Method(SRM) - Color
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal" ng-click='getRandomBeer()'>
+    Get Random Beer
+</button>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{randomBeer.name}}</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <img class="img-responsive center-block" src="{{randomBeer.labels.medium}}" alt="Beer Label">
+                    </li>
+                    <li class='list-group-item' ng-show='randomBeer.description'>Description: {{randomBeer.description}}</li>
+                    <li class='list-group-item' ng-show='randomBeer.glass.name'>Glass: {{randomBeer.glass.name}}</li>
+                    <li class="list-group-item" ng-show='randomBeer.abv'>Alcohol By Volume (ABV): {{randomBeer.abv}}%</li>
+                    <li class="list-group-item" ng-show='randomBeer.ibu'>International Bittering Units (IBU): {{randomBeer.ibu}}</li>
+                    <li class="list-group-item" ng-show='randomBeer.style.name'>Style: {{randomBeer.style.name}}</li>
+                    <li class='list-group-item' ng-show='randomBeer.foodPairings'>Food Pairings: {{randomBeer.foodPairings}}</li>
+                    <li class='list-group-item' ng-show='randomBeer.isOrganic'> Organic: {{randomBeer.isOrganic}}</li>
+                    <li class='list-group-item' ng-show='randomBeer.srm.hex' style='background: #{{randomBeer.srm.hex}}'>
+                        Standard Reference Method(SRM) - Color
+                    </li>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" ng-click='getRandomBeer()'>New Random Beer</button>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-var app = angular.module('Beer-App', ['ui.router']);
+var app = angular.module('Beer-App', ['ui.router', 'ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     //
@@ -21,10 +21,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: './views/locations.html',
             controller: 'MainController'
 
-        })
-        .state('events', {
-            url: '/events',
-            templateUrl: './views/events.html',
-            controller: 'MainController'
         });
 });

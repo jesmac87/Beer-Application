@@ -1,5 +1,5 @@
 <!-- views/location.html -->
-<h1>Locations</h1>
+<!-- <h1>Locations</h1>
 <form name='locationForm' class='form-inline form-bottom-margin' ng-submit='getLocations(city, state, zip)'>
     <div class="form-group">
         <label for="label-city">City</label>
@@ -34,4 +34,53 @@
             </div>
         </div>
     </div>
+</div> -->
+<!-- Button trigger modal -->
+<h1>Locations</h1>
+<form name='locationForm' class='form-inline form-bottom-margin' ng-submit='getLocations(city, state, zip)'>
+    <div class="form-group">
+        <label for="label-city">City</label>
+        <input type="text" class="form-control" id="label-city" placeholder="City" ng-model='city'>
+    </div>
+    <div class="form-group">
+        <label for="State">State</label>
+        <input type="text" class="form-control" id="State" placeholder="Full State Name" ng-model='state'>
+    </div>
+    <div class="form-group">
+        <label for="Zipcode">Zipcode</label>
+        <input type="text" class="form-control" id="Zipcode" placeholder="Zipcode" ng-model='zip'>
+    </div>
+    <button class='btn btn-warning'>Submit</button>
+</form>
+<div class='row'>
+    <div class='col-md-4' ng-repeat="location in locations | orderBy: 'brewery.name'">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" ng-click='openModal(location)'>
+            {{location.brewery.name}}
+        </button>
+    </div>
 </div>
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <ul class='list-group'>
+                    <li class='list-group-item' ng-show="location.brewery.images.medium"><img src="{{location.brewery.images.medium}}" alt="Brewery logo"></li>
+                    <li class='list-group-item' ng-show="location.brewery.established">Established: {{location.brewery.established}}</li>
+                    <li class='list-group-item' ng-show="location.brewery.description">{{location.brewery.description}}</li>
+                    <li class='list-group-item' ng-show="location.locationType">Batch Size: {{location.locationType}}</li>
+                    <li class='list-group-item' ng-show="location.phone">{{location.phone}}</li>
+                    <li class='list-group-item' ng-show="location.website"><a href="{{location.website}}">{{location.website}}</a></li>
+                    <li class='list-group-item' ng-show="location.streetAddress">{{location.streetAddress}} {{location.locality}} {{location.region}} {{location.postalCode}}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
