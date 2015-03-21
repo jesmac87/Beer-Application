@@ -2,8 +2,8 @@ var app = angular.module('Beer-App', ['ui.router', 'ui.bootstrap', 'firebase']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     //
-    // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("home");
+    // For any unmatched url, redirect to /diary
+    $urlRouterProvider.otherwise("beerDiary");
     //
     // Now set up the states
     $stateProvider
@@ -11,10 +11,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/randomBeer",
             templateUrl: "./views/randomBeer.html"
         })
-        .state('home', {
-            url: "/home",
-            templateUrl: "./views/home.html",
-            controller: 'MainController'
+        .state('beerDiary', {
+            url: "/beerDiary",
+            templateUrl: "./beerDiary/beerDiary.html",
+            controller: 'BeerDiaryController'
         })
         .state('locations', {
             url: '/locations',

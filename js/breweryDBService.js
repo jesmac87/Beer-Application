@@ -5,6 +5,13 @@ app.service('breweryDBService', function($http, $window) {
     var breweryURL = 'http://api.brewerydb.com/v2/',
         key = '?key=' + $window.env.apiKey;
 
+    this.getBeerDB = function(name) {
+        return $http({
+            method: 'GET',
+            url: breweryURL + 'beers' + key + '&name=' + name,
+        });
+    };
+
 
     this.getRandomBeerDB = function() {
         return $http({
