@@ -1,0 +1,25 @@
+<div class="panel panel-warning">
+    <!-- Default panel contents -->
+    <div class="panel-heading">{{favBeer.name}}</div>
+    <div class="panel-body">
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <img class="img-responsive center-block" src="{{favBeer.labels.medium}}" alt="Beer Label">
+        </li>
+        <li class='list-group-item' ng-show='favBeer.description'>Description: {{favBeer.description}}</li>
+        <li class='list-group-item' ng-show='favBeer.glass.name'>Glass: {{favBeer.glass.name}}</li>
+        <li class="list-group-item" ng-show='favBeer.abv'>Alcohol By Volume (ABV): {{favBeer.abv}}%</li>
+        <li class="list-group-item" ng-show='favBeer.ibu'>International Bittering Units (IBU): {{favBeer.ibu}}</li>
+        <li class="list-group-item" ng-show='favBeer.style.name'>Style: {{favBeer.style.name}}</li>
+        <li class='list-group-item' ng-show='favBeer.foodPairings'>Food Pairings: {{favBeer.foodPairings}}</li>
+        <li class='list-group-item' ng-show='favBeer.isOrganic'> Organic: {{favBeer.isOrganic}}</li>
+        <li class='list-group-item' ng-show='favBeer.srm.hex' style='background: #{{favBeer.srm.hex}}'>
+            Standard Reference Method(SRM) - Color
+        </li>
+        <li class='list-group-item'>
+            <button class="btn btn-warning" ng-click='removeFromFavorites(favBeer)'>Remove From Favorites</button>
+        </li>
+    </ul>
+</div>

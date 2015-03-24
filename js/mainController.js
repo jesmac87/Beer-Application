@@ -35,4 +35,6 @@ app.controller('MainController', function($scope, breweryDBService, $modal) {
             size: 'lg',
         });
     };
+
+
 });

@@ -7,26 +7,13 @@
         </div>
         <button type="submit" class="btn btn-warning">Find Beer</button>
     </form>
-    <div class="panel panel-warning" ng-repeat='beers in favBeer'>
-        <!-- Default panel contents -->
-        <div class="panel-heading">Panel heading</div>
-        <div class="panel-body">
+</div>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-4' ng-repeat="beer in favorites">
+            <button type="button" class="btn btn-warning form-bottom-margin" ng-click='openFavoriteBeerModal(beer)'>
+                {{beer.name}}
+            </button>
         </div>
-        <!-- List group -->
-        <ul class="list-group">
-            <li class="list-group-item">
-                <img class="img-responsive center-block" src="{{beers.labels.medium}}" alt="Beer Label">
-            </li>
-            <li class='list-group-item' ng-show='beers.description'>Description: {{beers.description}}</li>
-            <li class='list-group-item' ng-show='beers.glass.name'>Glass: {{beers.glass.name}}</li>
-            <li class="list-group-item" ng-show='beers.abv'>Alcohol By Volume (ABV): {{beers.abv}}%</li>
-            <li class="list-group-item" ng-show='beers.ibu'>International Bittering Units (IBU): {{beers.ibu}}</li>
-            <li class="list-group-item" ng-show='beers.style.name'>Style: {{beers.style.name}}</li>
-            <li class='list-group-item' ng-show='beers.foodPairings'>Food Pairings: {{beers.foodPairings}}</li>
-            <li class='list-group-item' ng-show='beers.isOrganic'> Organic: {{beers.isOrganic}}</li>
-            <li class='list-group-item' ng-show='beers.srm.hex' style='background: #{{beers.srm.hex}}'>
-                Standard Reference Method(SRM) - Color
-            </li>
-        </ul>
     </div>
 </div>
