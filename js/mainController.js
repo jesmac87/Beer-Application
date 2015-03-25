@@ -36,5 +36,12 @@ app.controller('MainController', function($scope, breweryDBService, $modal) {
         });
     };
 
+    //refactor later -- probably doesn't belong in here
+    $scope.userLogout = function() {
+        var ref = new Firebase("https://beer-app.firebaseio.com");
+        ref.unauth();
+        alert('You are now logged out');
+    };
+
 
 });

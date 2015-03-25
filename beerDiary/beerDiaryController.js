@@ -15,9 +15,25 @@ app.controller('BeerDiaryController', function($scope, breweryDBService, $modal,
         });
     };
 
+    var ref = new Firebase("https://beer-app.firebaseio.com");
 
-    var ref = new Firebase("https://beer-app.firebaseio.com/favorites");
-    $scope.favorites = $firebaseArray(ref);
+    // Create a callback which logs the current auth state
+    function authDataCallback(authData) {
+        if (authData) {
+            var userId = ref.getAuth().uid;
+            var userRef = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
+            $scope.favorites = $firebaseArray(userRef);
+        } else {
+            console.log("user logged out");
+        }
+
+    }
+
+    // Register the callback to be fired every time auth state changes
+    ref.onAuth(authDataCallback);
+
+
+
 
 
 
@@ -56,8 +72,13 @@ app.controller('BeerDiaryController', function($scope, breweryDBService, $modal,
 
                 controller: function($scope) {
 
-                    var ref = new Firebase("https://beer-app.firebaseio.com/favorites");
-                    $scope.favorites = $firebaseArray(ref);
+                    var ref = new Firebase("https://beer-app.firebaseio.com/users");
+                    var userId = ref.getAuth().uid;
+
+
+                    var userRef = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
+
+                    $scope.favorites = $firebaseArray(userRef);
                     $scope.favBeer = beer;
 
                     $scope.addToFavorites = function(beer) {

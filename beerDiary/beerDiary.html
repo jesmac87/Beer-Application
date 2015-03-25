@@ -1,6 +1,6 @@
 <!-- beerDiary.html -->
 <div class='container' ng-controller="BeerDiaryController">
-    <form class="form-inline" ng-submit="getBeer(beer)">
+    <form class="form-inline form-bottom-margin" ng-submit="getBeer(beer)">
         <div class="form-group">
             <label for="exampleInputName2">Beer name</label>
             <input type="text" class="form-control" id="exampleInputName2" placeholder="Please enter beer name" ng-model='beer'>
@@ -11,9 +11,9 @@
 <div class='container'>
     <div class='row'>
         <div class='col-md-4' ng-repeat="beer in favorites">
-            <button type="button" class="btn btn-warning form-bottom-margin" ng-click='openFavoriteBeerModal(beer)'>
+            <a type="button" class="ghost-button-semi-transparent form-bottom-margin" ng-click='openFavoriteBeerModal(beer)'>
                 {{beer.name}}
-            </button>
+            </a>
         </div>
     </div>
 </div>

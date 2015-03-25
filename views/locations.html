@@ -54,9 +54,9 @@
 </form>
 <div class='row'>
     <div class='col-md-4' ng-repeat="location in locations | orderBy: 'brewery.name'">
-        <button type="button" class="btn btn-warning form-bottom-margin" ng-click='openModal(location)'>
+        <a type="button" class="ghost-button-semi-transparent form-bottom-margin" ng-click='openModal(location)'>
             {{location.brewery.name}}
-        </button>
+        </a>
     </div>
 </div>
 <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

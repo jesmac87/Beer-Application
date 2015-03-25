@@ -19,3 +19,35 @@ body {
 .panel-title a {
     cursor: pointer;
 }
+
+.transparent-background {
+    background-color: rgba(1, 1, 1, 0.5);
+}
+
+.ghost-button-semi-transparent {
+    display: inline-block;
+    width: 200px;
+    padding: 8px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid white;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.ghost-button-semi-transparent:hover,
+.ghost-button-semi-transparent:active {
+    background-color: ##EC971F;
+    /* fallback */
+    
+    color: white;
+    background-color: rgb(236, 151, 31);
+    border-color: #EC971F;
+    /* fallback */
+    
+    border-color: rgba(255, 255, 255, 0.4);
+    transition: background-color 0.3s ease-in, border-color 0.3s ease-in;
+    text-decoration: none;
+}
