@@ -2,7 +2,7 @@
 <html ng-app="Beer-App">
 
 <head>
-    <title>Homebrew Blog</title>
+    <title>Beer Application</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -10,7 +10,7 @@
 </head>
 
 <body ng-controller="MainController">
-    <nav class="navbar navbar-default">
+    <nav ng-show='auth.$getAuth()' class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" ui-sref='beerDiary'>
@@ -21,14 +21,19 @@
                     </li>
                     <li><a ui-sref="locations">Find a Brewery</a>
                     </li>
-                    <li><a ui-sref="login">Login</a>
+                    <li ng-show='!auth.$getAuth()'><a ui-sref="login">Login</a>
                     </li>
-                    <li><a ng-click='userLogout()'>Logout</a>
+                    <li ng-show='auth.$getAuth()'>
+                        <a href="#" ng-click="userLogout()">Logout: {{ auth.$getAuth().password.email }}  </a>
                     </li>
                 </ul>
             </div>
     </nav>
+    <div class='centered' ui-view='login'></div>
+    <div ui-view='randomBeer'></div>
+    <div ui-view='locations'></div>
     <div ui-view></div>
+    <!-- <div ui-view></div> -->
     <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src='./js/angular-ui-router.js'></script>
@@ -38,6 +43,7 @@
     <script src='./js/breweryDBService.js'></script>
     <script src='./login/loginController.js'></script>
     <script src='./beerDiary/beerDiaryController.js'></script>
+    <script src='./login/authFactory.js'></script>
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
     <!-- AngularFire -->

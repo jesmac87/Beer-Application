@@ -1,6 +1,10 @@
 var app = angular.module('Beer-App');
 
-app.controller('MainController', function($scope, breweryDBService, $modal) {
+app.controller('MainController', function($state, $scope, breweryDBService, $modal, Auth) {
+
+    $scope.auth = Auth;
+    console.log($scope.auth.$getAuth());
+
     $scope.getRandomBeer = function() {
         breweryDBService.getRandomBeerDB().then(function(beer) {
             $scope.randomBeer = beer.data.data;
@@ -36,12 +40,13 @@ app.controller('MainController', function($scope, breweryDBService, $modal) {
         });
     };
 
-    //refactor later -- probably doesn't belong in here
+    // refactor later -- probably doesn't belong in here
     $scope.userLogout = function() {
-        var ref = new Firebase("https://beer-app.firebaseio.com");
-        ref.unauth();
+        Auth.$unauth();
+        $state.go('login');
         alert('You are now logged out');
     };
+
 
 
 });

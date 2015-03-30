@@ -2,8 +2,6 @@ var app = angular.module('Beer-App');
 
 app.controller('BeerDiaryController', function($scope, breweryDBService, $modal, $firebaseArray) {
 
-
-
     $scope.getBeer = function(name) {
         breweryDBService.getBeerDB(name).then(function(beer) {
 
@@ -26,16 +24,10 @@ app.controller('BeerDiaryController', function($scope, breweryDBService, $modal,
         } else {
             console.log("user logged out");
         }
-
     }
 
     // Register the callback to be fired every time auth state changes
     ref.onAuth(authDataCallback);
-
-
-
-
-
 
     $scope.openFavoriteBeerModal = function(beer) {
         var modalInstance = $modal.open({
@@ -43,8 +35,9 @@ app.controller('BeerDiaryController', function($scope, breweryDBService, $modal,
 
             controller: function($scope) {
 
-                var ref = new Firebase("https://beer-app.firebaseio.com/favorites");
-                $scope.favorites = $firebaseArray(ref);
+                var userId = ref.getAuth().uid;
+                var userRef = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
+                $scope.favorites = $firebaseArray(userRef);
 
                 console.log($scope.favBeer);
                 $scope.favBeer = beer;
@@ -60,8 +53,6 @@ app.controller('BeerDiaryController', function($scope, breweryDBService, $modal,
             size: 'lg',
         });
     };
-
-
 
     $scope.openBeerModal = function(beer) {
 
