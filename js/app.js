@@ -1,33 +1,5 @@
 var app = angular.module('Beer-App', ['ui.router', 'ui.bootstrap', 'firebase']);
 
-// app.config(function($stateProvider, $urlRouterProvider) {
-//     //
-//     // For any unmatched url, redirect to /diary
-//     $urlRouterProvider.otherwise("beerDiary");
-//     //
-//     // Now set up the states
-//     $stateProvider
-//         .state('randomBeer', {
-//             url: "/randomBeer",
-//             templateUrl: "./views/randomBeer.html"
-//         })
-//         .state('beerDiary', {
-//             url: "/beerDiary",
-//             templateUrl: "./beerDiary/beerDiary.html",
-//             controller: 'BeerDiaryController',
-//         })
-//         .state('locations', {
-//             url: '/locations',
-//             templateUrl: './views/locations.html',
-//             controller: 'MainController'
-
-//         })
-//         .state('login', {
-//             url: '/login',
-//             templateUrl: './login/login.html',
-//             controller: 'LoginController',
-//         });
-// });
 
 // for ui-router
 app.run(["$rootScope", "$state", function($rootScope, $state) {
@@ -57,36 +29,6 @@ app.config(["$stateProvider", function($stateProvider) {
 
         })
 
-
-    //     .state("login", {
-    //     // the rest is the same for ui-router and ngRoute...
-    //     controller: "LoginController",
-    //     templateUrl: "./login/login.html",
-    //     url: '/login',
-
-    // })
-
-
-    // .state("beerDiary", {
-
-    //         views: {
-    //             'beerDiary': {
-    //                 templateUrl: "./beerDiary/beerDiary.html",
-    //             }
-    //         },
-    //         controller: "BeerDiaryController",
-
-    //         url: '/beerDiary',
-    //         resolve: {
-    //             // controller will not be loaded until $requireAuth resolves
-    //             // Auth refers to our $firebaseAuth wrapper in the example above
-    //             "currentAuth": ["Auth", function(Auth) {
-    //                 // $requireAuth returns a promise so the resolve waits for it to complete
-    //                 // If the promise is rejected, it will throw a $stateChangeError (see above)
-    //                 return Auth.$requireAuth();
-    //             }]
-    //         }
-    //     })
 
     .state("beerDiary", {
 
