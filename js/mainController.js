@@ -20,19 +20,27 @@ app.controller('MainController', function($state, $scope, breweryDBService, $mod
 
         breweryDBService.getLocationsDB(city, state, zip).then(function(locations) {
 
+
             reset();
 
+
             $scope.locations = locations.data.data;
-        }, function() {
-            alert('Please try again');
+        }, function(error) {
+            alert('Please try again:' + error);
         });
+
 
     };
 
     var reset = function() {
+
         $scope.city = '';
+
         $scope.state = '';
+
         $scope.zip = '';
+
+
     };
 
 
@@ -46,15 +54,15 @@ app.controller('MainController', function($state, $scope, breweryDBService, $mod
 
     //redundant...
     // $scope.addToFavorites = function(beer) {
- //     var ref = new Firebase("https://beer-app.firebaseio.com/users");
- //     var userId = ref.getAuth().uid;
- //     var userRef = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
- //     $scope.favorites = $firebaseArray(userRef);
- //     $scope.favorites.$add(beer);
+    //     var ref = new Firebase("https://beer-app.firebaseio.com/users");
+    //     var userId = ref.getAuth().uid;
+    //     var userRef = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
+    //     $scope.favorites = $firebaseArray(userRef);
+    //     $scope.favorites.$add(beer);
 
 
 
- // };
+    // };
 
 
 
