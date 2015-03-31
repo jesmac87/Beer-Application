@@ -18,47 +18,33 @@ app.config(["$stateProvider", function($stateProvider) {
         .state("login", {
             views: {
                 'login': {
-                    // the rest is the same for ui-router and ngRoute...
-
                     templateUrl: './login/login.html',
-
                 }
             },
             controller: "LoginController",
             url: '/login'
-
         })
-
-
-    .state("beerDiary", {
-
-
-        templateUrl: "./beerDiary/beerDiary.html",
-
-        controller: "BeerDiaryController",
-
-        url: '/beerDiary',
-        resolve: {
-            // controller will not be loaded until $requireAuth resolves
-            // Auth refers to our $firebaseAuth wrapper in the example above
-            "currentAuth": ["Auth", function(Auth) {
-                // $requireAuth returns a promise so the resolve waits for it to complete
-                // If the promise is rejected, it will throw a $stateChangeError (see above)
-                return Auth.$requireAuth();
-            }]
-        }
-    })
-
-
-    .state("randomBeer", {
+        .state("beerDiary", {
+            templateUrl: "./beerDiary/beerDiary.html",
+            controller: "BeerDiaryController",
+            url: '/beerDiary',
+            resolve: {
+                // controller will not be loaded until $requireAuth resolves
+                // Auth refers to our $firebaseAuth wrapper in the example above
+                "currentAuth": ["Auth", function(Auth) {
+                    // $requireAuth returns a promise so the resolve waits for it to complete
+                    // If the promise is rejected, it will throw a $stateChangeError (see above)
+                    return Auth.$requireAuth();
+                }]
+            }
+        })
+        .state("randomBeer", {
             views: {
                 'randomBeer': {
-                    templateUrl: "./views/randomBeer.html",
+                    templateUrl: "./randomBeer/randomBeer.html",
                 }
             },
-
-            controller: "BeerDiaryController",
-
+            controller: "RandomBeerController",
             url: "/randomBeer",
             resolve: {
                 // controller will not be loaded until $requireAuth resolves
@@ -77,7 +63,6 @@ app.config(["$stateProvider", function($stateProvider) {
                 }
             },
             controller: 'MainController',
-
             url: '/locations',
             resolve: {
                 // controller will not be loaded until $requireAuth resolves

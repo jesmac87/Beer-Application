@@ -95,7 +95,7 @@ app.controller('BeerDiaryController', function($firebaseObject, $scope, breweryD
 
                     $scope.addToFavorites = function(beer) {
                         $scope.favorites.$add(beer);
-                        console.log(beer);
+
                         modalInstance.close('cancel');
 
                     };

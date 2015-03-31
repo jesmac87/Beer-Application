@@ -1,33 +1,9 @@
 var app = angular.module('Beer-App');
 
-app.controller('MainController', function($state, $scope, breweryDBService, $modal, Auth) {
+app.controller('MainController', function($state, $scope, breweryDBService, $modal, Auth, $firebaseArray) {
 
     $scope.auth = Auth;
-    console.log($scope.auth.$getAuth());
 
-    $scope.getRandomBeer = function() {
-        breweryDBService.getRandomBeerDB().then(function(beer) {
-            $scope.randomBeer = beer.data.data;
-            console.log($scope.randomBeer);
-        });
-    };
-
-    $scope.getLocations = function(city, state, zip) {
-
-        breweryDBService.getLocationsDB(city, state, zip).then(function(locations) {
-            reset();
-            $scope.locations = locations.data.data;
-            console.log($scope.locations);
-        }, function() {
-            alert('Please try again');
-        });
-    };
-
-    var reset = function() {
-        $scope.city = '';
-        $scope.state = '';
-        $scope.zip = '';
-    };
 
     $scope.openModal = function(location) {
 
@@ -40,12 +16,46 @@ app.controller('MainController', function($state, $scope, breweryDBService, $mod
         });
     };
 
+    $scope.getLocations = function(city, state, zip) {
+
+        breweryDBService.getLocationsDB(city, state, zip).then(function(locations) {
+
+            reset();
+
+            $scope.locations = locations.data.data;
+        }, function() {
+            alert('Please try again');
+        });
+
+    };
+
+    var reset = function() {
+        $scope.city = '';
+        $scope.state = '';
+        $scope.zip = '';
+    };
+
+
+
     // refactor later -- probably doesn't belong in here
     $scope.userLogout = function() {
         Auth.$unauth();
         $state.go('login');
         alert('You are now logged out');
     };
+
+    //redundant...
+    // $scope.addToFavorites = function(beer) {
+ //     var ref = new Firebase("https://beer-app.firebaseio.com/users");
+ //     var userId = ref.getAuth().uid;
+ //     var userRef = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
+ //     $scope.favorites = $firebaseArray(userRef);
+ //     $scope.favorites.$add(beer);
+
+
+
+ // };
+
 
 
 

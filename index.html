@@ -13,10 +13,13 @@
     <nav ng-show='auth.$getAuth()' class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" ui-sref='beerDiary'>
+                <a class="navbar-brand">
                     <img alt="Brand" src="http://icons.iconarchive.com/icons/fatcow/farm-fresh/32/beer-icon.png">
                 </a>
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a ui-sref="beerDiary">Beer Diary</a>
+                    </li>
                     <li><a ui-sref="randomBeer">Random Beer Generator</a>
                     </li>
                     <li><a ui-sref="locations">Find a Brewery</a>
@@ -30,7 +33,7 @@
             </div>
     </nav>
     <div class='centered' ui-view='login'></div>
-    <div ui-view='randomBeer'></div>
+    <div class='centered' ui-view='randomBeer'></div>
     <div ui-view='locations'></div>
     <div ui-view></div>
     <!-- AngularJS -->
@@ -43,6 +46,7 @@
     <script src='./login/loginController.js'></script>
     <script src='./beerDiary/beerDiaryController.js'></script>
     <script src='./login/authFactory.js'></script>
+    <script src='./randomBeer/randomBeerController.js'></script>
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
     <!-- AngularFire -->

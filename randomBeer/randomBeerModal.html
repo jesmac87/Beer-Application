@@ -1,0 +1,26 @@
+<div class="panel panel-warning">
+    <!-- Default panel contents -->
+    <div class="panel-heading">{{randomBeer.name}}</div>
+    <div class="panel-body">
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <img class="img-responsive center-block" src="{{randomBeer.labels.medium}}" alt="Beer Label">
+        </li>
+        <li class='list-group-item' ng-show='randomBeer.description'>Description: {{randomBeer.description}}</li>
+        <li class='list-group-item' ng-show='randomBeer.glass.name'>Glass: {{randomBeer.glass.name}}</li>
+        <li class="list-group-item" ng-show='randomBeer.abv'>Alcohol By Volume (ABV): {{randomBeer.abv}}%</li>
+        <li class="list-group-item" ng-show='randomBeer.ibu'>International Bittering Units (IBU): {{randomBeer.ibu}}</li>
+        <li class="list-group-item" ng-show='randomBeer.style.name'>Style: {{randomBeer.style.name}}</li>
+        <li class='list-group-item' ng-show='randomBeer.foodPairings'>Food Pairings: {{randomBeer.foodPairings}}</li>
+        <li class='list-group-item' ng-show='randomBeer.isOrganic'> Organic: {{randomBeer.isOrganic}}</li>
+        <li class='list-group-item' ng-show='randomBeer.srm.hex' style='background: #{{randomBeer.srm.hex}}'>
+            Standard Reference Method(SRM) - Color
+        </li>
+    </ul>
+    <div class="panel-footer">
+        <button type="button" class="btn btn-warning" ng-click='addToFavorites()'>Add to Favorites</button>
+        <button type="button" class="btn btn-success" ng-click='newRandomBeer()'>New Random Beer</button>
+    </div>
+</div>

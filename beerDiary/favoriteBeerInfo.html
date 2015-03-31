@@ -18,23 +18,25 @@
         <li class='list-group-item' ng-show='favBeer.srm.hex' style='background: #{{favBeer.srm.hex}}'>
             Standard Reference Method(SRM) - Color
         </li>
-        <li>
+        <li class='list-group-item'>
             <div class="row">
                 <!-- /.col-lg-6 -->
                 <div class="col-lg-12">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Enter Comments" ng-model='comment'>
-                        <span class="input-group-btn">
+                    <form ng-submit='addComment(comment, favBeer)'>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Comments" ng-model='comment'>
+                            <span class="input-group-btn">
                             <button class="btn btn-warning" type="button" ng-click='addComment(comment, favBeer)'>Submit</button>
                         </span>
-                    </div>
-                    <!-- /input-group -->
+                        </div>
+                        <!-- /input-group -->
+                    </form>
                 </div>
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
         </li>
-        <li>
+        <li class='list-group-item' ng-show='favBeer.comments'>
             <div class="media" ng-repeat='comment in favBeer.comments'>
                 <div class="media-body">
                     <h4 class="media-heading">{{comment.date | date : format : timezone}}</h4> {{comment.comment}}
