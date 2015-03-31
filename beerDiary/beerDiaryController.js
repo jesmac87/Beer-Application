@@ -1,6 +1,6 @@
 var app = angular.module('Beer-App');
 
-app.controller('BeerDiaryController', function($scope, breweryDBService, $modal, $firebaseArray) {
+app.controller('BeerDiaryController', function($firebaseObject, $scope, breweryDBService, $modal, $firebaseArray) {
 
     $scope.getBeer = function(name) {
         breweryDBService.getBeerDB(name).then(function(beer) {
@@ -36,11 +36,32 @@ app.controller('BeerDiaryController', function($scope, breweryDBService, $modal,
             controller: function($scope) {
 
                 var userId = ref.getAuth().uid;
-                var userRef = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
-                $scope.favorites = $firebaseArray(userRef);
+                var userFavorites = new Firebase("https://beer-app.firebaseio.com/users/" + userId + '/favorites');
+                var obj = $firebaseObject(userFavorites);
+                $scope.favorites = $firebaseArray(userFavorites);
+
+                obj.$bindTo($scope, "comments");
+                var today = new Date();
 
                 console.log($scope.favBeer);
                 $scope.favBeer = beer;
+
+                $scope.addComment = function(comment, favBeer) {
+
+
+
+
+                    if (!$scope.comments[favBeer.$id].comments) { // make sure to not create array if array exists, to prevent overwrite
+                        $scope.comments[favBeer.$id].comments = [];
+                    }
+
+                    $scope.comments[favBeer.$id].comments.push({
+                        comment: comment,
+                        date: today.toJSON()
+                    });
+                    $scope.comment = ''; // clear input
+
+                };
 
                 $scope.removeFromFavorites = function(favBeer) {
                     // $scope.favorites.$remove($indexFor(favBeer));
